@@ -87,7 +87,7 @@ app.listen(3001, () =>  {
   });
 
 
-app.get("/", (req, res) => {
+app.get("/character", (req, res) => {
     const sql = "SELECT * FROM character "
     db.all(sql, [], (err, rows) => {
       if (err) {
