@@ -1,4 +1,6 @@
 // https://blog.pagesd.info/2019/10/08/crud-with-express-sqlite-10-steps/#crud3
+// https://docs.aws.amazon.com/fr_fr/cloudhsm/latest/userguide/ssl-offload-overview.html
+// https://www.smashingmagazine.com/2017/06/guide-switching-http-https/
 
 const express = require("express"); //The first line references / imports the Express module.
 const sqlite3 = require("sqlite3"); //Declare the SQlite3 module
@@ -85,7 +87,7 @@ app.listen(3001, () =>  {
   });
 
 
-app.get("/character", (req, res) => {
+app.get("/", (req, res) => {
     const sql = "SELECT * FROM character "
     db.all(sql, [], (err, rows) => {
       if (err) {
