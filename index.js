@@ -98,46 +98,14 @@ app.get("/character", (req, res) => {
     });
 });
 
-app.get("/character/7", (req, res) => {
-    const sql = "SELECT * FROM character WHERE char_id = 7  "
-    db.all(sql, [], (err, rows) => {
-      if (err) {
-        return console.error(err.message);
-      }
-        console.log("test serveur sur /character/7");
-        res.send(rows);
-    });
-});
-
-app.get("/character/8", (req, res) => {
-  const sql = "SELECT * FROM character WHERE char_id = 8  "
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-      console.log("test serveur sur /character/8");
-      res.send(rows);
-  });
-});
-
-app.get("/character/9", (req, res) => {
-  const sql = "SELECT * FROM character WHERE char_id = 9  "
+app.get("/character/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = ("SELECT * FROM character WHERE char_id = "+ id +";")
   db.all(sql, [], (err, rows) => {
     if (err) {
       return console.error(err.message);
     }
       console.log("test serveur  sur /character/9");
-      res.send(rows);
-  });
-});
-
-app.get("/character/10", (req, res) => {
-  const sql = "SELECT * FROM character WHERE char_id = 10  "
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-      console.log("test serveur  sur /character/10");
       res.send(rows);
   });
 });
@@ -153,8 +121,9 @@ app.get("/inventory", (req, res) => {
   });
 });
 
-app.get(("/inventory/7"), (req, res) => {
-  const sql = ("SELECT * FROM inventory WHERE char_id = 7;")
+app.get(("/inventory/:id"), (req, res) => {
+  const id = req.params.id;
+  const sql = ("SELECT * FROM inventory WHERE char_id = "+ id +";")
   db.all(sql, [], (err, rows) => {
     if (err) {
       return console.error(err.message);
@@ -163,40 +132,6 @@ app.get(("/inventory/7"), (req, res) => {
       res.send(rows);
   });
 });
-
-app.get(("/inventory/8"), (req, res) => {
-  const sql = ("SELECT * FROM inventory WHERE char_id = 8;")
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-      console.log("test serveur  sur /inventory/8");
-      res.send(rows);
-  });
-});
-
-app.get(("/inventory/9"), (req, res) => {
-  const sql = ("SELECT * FROM inventory WHERE char_id = 9;")
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-      console.log("test serveur  sur /inventory/9");
-      res.send(rows);
-  });
-});
-
-app.get(("/inventory/10"), (req, res) => {
-  const sql = ("SELECT * FROM inventory WHERE char_id = 10;")
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-      console.log("test serveur  sur /inventory/10");
-      res.send(rows);
-  });
-});
-
 
 app.post("/", (req, res) => {
 
