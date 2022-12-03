@@ -2,6 +2,8 @@
 // https://docs.aws.amazon.com/fr_fr/cloudhsm/latest/userguide/ssl-offload-overview.html
 // https://www.smashingmagazine.com/2017/06/guide-switching-http-https/
 
+console.log("on lance le serveur sqlite pour DD")
+
 const express = require("express"); //The first line references / imports the Express module.
 const sqlite3 = require("sqlite3"); //Declare the SQlite3 module
 const cors = require('cors') 
