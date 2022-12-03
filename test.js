@@ -1,0 +1,1 @@
+console.log("on a bien lancé le programme de test")
